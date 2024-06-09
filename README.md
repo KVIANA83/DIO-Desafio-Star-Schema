@@ -62,3 +62,44 @@ O objetivo deste desafio é criar um esquema dimensional (Star Schema) para aná
 ### Exemplo de Uso
 
 Para analisar o desempenho de um professor específico ao longo do tempo, você pode utilizar o esquema estrela para consultar métricas como número de aulas ministradas, horas de ensino, e avaliações médias, filtrando por professor e período de tempo.
+
+### Diagrama Esquemático 
+
+O diagrama pode ser visualizado como: 
+
+
+           Dim_Professor            Dim_Curso             Dim_Departamento
+                 |                      |                        |
+                 |                      |                        |
+                 |                      |                        |
+            +-------------+        +-------------+         +-------------+
+            | Professor_ID |        |  Curso_ID   |         |Departamento_ID|
+            +-------------+        +-------------+         +-------------+
+                  \                    /                    /
+                   \                  /                    /
+                   +\---------------/----+ +-------------/
+                    | Fato_Professor     |
+                    +--------------------+
+                    | Professor_ID       |
+                    | Curso_ID           |
+                    | Departamento_ID    |
+                    | Data_ID            |
+                    | Número_de_Aulas    |
+                    | Horas_Ensino       |
+                    | Avaliação_Média    |
+                    | Salário            |
+                    +--------------------+
+                               |
+                               |
+                               |
+                         Dim_Data
+                      +--------------+
+                      |    Data_ID   |
+                      +--------------+
+                      |     Data     |
+                      |     Ano      |
+                      |     Mês      |
+                      |     Dia      |
+                      |   Trimestre  |
+                      | Semana_do_Ano|
+                      +--------------+
